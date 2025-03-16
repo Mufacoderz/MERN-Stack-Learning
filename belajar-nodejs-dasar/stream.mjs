@@ -1,14 +1,24 @@
-import fs from 'fs'
+// Mengimpor modul 'fs' (File System) bawaan Node.js untuk menangani operasi file.
+import fs from 'fs';
 
-const writter = fs.createWriteStream('target.log')
+// Membuat writable stream untuk menulis ke file 'target.log'.
+const writter = fs.createWriteStream('target.log');
 
-writter.write("faduil\n")
-writter.write("uddufoh\n")
-writter.write("ddef\n")
-writter.end()
+// Menulis data ke dalam file menggunakan stream.
+writter.write("faduil\n");  // Menulis "faduil" diikuti oleh newline (\n).
+writter.write("uddufoh\n"); // Menulis "uddufoh" diikuti oleh newline.
+writter.write("ddef\n");    // Menulis "ddef" diikuti oleh newline.
 
-const reader = fs.createReadStream('target.log')
+// Menutup stream setelah semua data ditulis.
+// Ini memastikan bahwa file disimpan dengan benar.
+writter.end();
 
+// Membuat readable stream untuk membaca isi file 'target.log'.
+const reader = fs.createReadStream('target.log');
+
+// Menambahkan event listener untuk menangani event "data".
+// Event "data" akan dipicu setiap kali ada data yang dibaca dari stream.
 reader.addListener("data", (data) => {
-    console.info(data.toString())
-})
+    // Data yang dibaca dalam bentuk buffer, perlu dikonversi ke string.
+    console.info(data.toString());
+});

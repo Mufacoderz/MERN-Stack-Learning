@@ -1,3 +1,21 @@
+
+
+//=========================================ARSITEKTUR NODE JS===============================================//
+
+
+// jika mau mengakses elemen html , window, prompt, url , apapun yg ada didalam browser bisa dengan js dom yaitu:
+// document.getElementById()
+// ...
+
+// tapi jika sudah diluar konteks web browser itu, maka harus dengan node js yaitu:
+// fs.writeFile() 
+// os.platform()
+// http.createServer()
+// path.dirname()
+// ...
+
+
+
 // //contoh kode synchronous
 
 // const getUserSync = (id) => {

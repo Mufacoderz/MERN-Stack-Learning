@@ -1,2 +1,13 @@
 modules:
 sekumpulan kode yg dapat digunakan kembali, dengan antarmuka yg terdefinisi
+
+node modules:
+fungsionalitas yg simpel ataupun kompleks yg tersimpan di dalam sebuah file js, yg dapat kita gunakan kembali pada aplikai node js
+
+1. core modules (sudah ada di dalam js)
+2. local modules (modul yg kita bikin sendiri)
+3. Third Party modules (modul yg dibuat orang lain / npm )
+
+
+require()
+--mencari modul

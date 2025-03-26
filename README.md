@@ -1,2 +1,2 @@
 # MERN Stack Learning
-file belajar MERN (MongoDB, ExpressJS, ReactJS, dan NodeJS) Stack
+file belajar Tech Stack MERN (MongoDB, ExpressJS, ReactJS, dan NodeJS) 

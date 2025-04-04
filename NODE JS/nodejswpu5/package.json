@@ -1,0 +1,13 @@
+{
+  "name": "nodejswpu5",
+  "version": "1.0.0",
+  "description": "belajar npm node js",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app" , 
+    "dev": "ls" ,
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "fadil",
+  "license": "ISC"
+}

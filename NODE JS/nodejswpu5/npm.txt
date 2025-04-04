@@ -1,0 +1,16 @@
+
+========================sedikit penjelasan=================================
+
+{
+  "name": "nodejswpu5",
+  "version": "1.0.0",
+  "description": "belajar npm node js",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app" , // di jalankan dengan ketik npm start
+    "dev": "ls" , // di jalankan dengan ketik npm run dev //karena dev nya script buatan sendiri, bukan standar node js
+    "test": "echo \"Error: no test specified\" && exit 1" // di jalankan dengan ketik npm test
+  },
+  "author": "fadil",
+  "license": "ISC"
+}

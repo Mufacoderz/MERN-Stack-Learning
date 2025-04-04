@@ -4,10 +4,13 @@
   "description": "belajar npm node js",
   "main": "app.js",
   "scripts": {
-    "start": "node app" , 
-    "dev": "ls" ,
+    "start": "node app",
+    "dev": "ls",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "fadil",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "validator": "^13.15.0"
+  }
 }

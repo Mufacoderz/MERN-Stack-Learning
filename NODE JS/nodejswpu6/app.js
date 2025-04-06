@@ -1,5 +1,7 @@
 const readline = require('readline')
 const fs = require('fs')
+const { resolve } = require('path')
+const { rejects } = require('assert')
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -19,16 +21,55 @@ if(!fs.existsSync(dataPath)){
 }
 
 
-rl.question("masukkan nama anda : ", (nama)=> {
-    rl.question('masukkan nomor HP anda :' ), (noHp) => {
-        const contact = {nama, noHp}
-        const fileButler = fs.readFileSync('data/contacts.json', 'utf-8')
-        const contacts = JSON.parse(fileButler)
+const pertanyaan1 = () => {
+    return new Promise((resolve, rejects) => {
+        rl.question('Masukkan nama anda: ', (nama) => {
+            resolve(nama)
+        })
+    })
+}
+const pertanyaan2 = () => {
+    return new Promise((resolve, rejects) => {
+        rl.question('Masukkan email anda: ', (email) => {
+            resolve(email)
+        })
+    })
+}
 
-        contacts.push(contact)
+const main = async () => {
+    const nama = await pertanyaan1()
+    const email = await pertanyaan2()
+    const contact = { nama, email };
 
-        fs.writeFileSync('data/contacts.json', JSON.stringify(contact))
-        console.log('done')
-    }
-    rl.close
-})
+    const fileBuffer = fs.readFileSync('data/contacts.json', 'utf-8');
+    const contacts = JSON.parse(fileBuffer);
+
+    contacts.push(contact);
+
+    fs.writeFileSync('data/contacts.json', JSON.stringify(contacts)); 
+    console.log('Kontak berhasil disimpan.');
+
+    rl.close();
+}
+
+main()
+
+
+
+//versi syncronous
+
+// rl.question("Masukkan nama anda: ", (nama) => {
+//     rl.question("Masukkan nomor HP anda: ", (noHp) => {
+//         const contact = { nama, noHp };
+
+//         const fileBuffer = fs.readFileSync('data/contacts.json', 'utf-8');
+//         const contacts = JSON.parse(fileBuffer);
+
+//         contacts.push(contact);
+
+//         fs.writeFileSync('data/contacts.json', JSON.stringify(contacts)); 
+//         console.log('Kontak berhasil disimpan.');
+
+//         rl.close();
+//     });
+// });

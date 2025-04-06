@@ -21,25 +21,26 @@ if(!fs.existsSync(dataPath)){
 }
 
 
-const pertanyaan1 = () => {
+const tulisPertanyaan = (pertanyaan) => {
     return new Promise((resolve, rejects) => {
-        rl.question('Masukkan nama anda: ', (nama) => {
+        rl.question( pertanyaan, (nama) => {
             resolve(nama)
         })
     })
 }
-const pertanyaan2 = () => {
-    return new Promise((resolve, rejects) => {
-        rl.question('Masukkan email anda: ', (email) => {
-            resolve(email)
-        })
-    })
-}
+// const pertanyaan = () => {
+//     return new Promise((resolve, rejects) => {
+//         rl.question(pertanyaan, (email) => {
+//             resolve(email)
+//         })
+//     })
+// }
 
 const main = async () => {
-    const nama = await pertanyaan1()
-    const email = await pertanyaan2()
-    const contact = { nama, email };
+    const nama = await tulisPertanyaan('Masukkan Nama anda : ')
+    const email = await tulisPertanyaan('Masukkan Email anda : ')
+    const noHP = await tulisPertanyaan('Masukkan nomor HP anda : ')
+    const contact = { nama, email, noHP };
 
     const fileBuffer = fs.readFileSync('data/contacts.json', 'utf-8');
     const contacts = JSON.parse(fileBuffer);

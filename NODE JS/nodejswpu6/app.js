@@ -1,10 +1,10 @@
 
-
 //mengambil argumen dari command line
 
 // const command = process.argv[2]
 
 const yargs = require("yargs")
+const contacts = require('./contacts.js')
 
 
 // if(command == 'add'){
@@ -36,12 +36,13 @@ yargs.command({
         },
     },
     handler(argv){
-        const contact = {
-            nama: argv.nama,
-            email: argv.email,
-            noHP: argv.noHP,
-        }
-        console.log(contact)
+        // const contact = {
+        //     nama: argv.nama,
+        //     email: argv.email,
+        //     noHP: argv.noHP,
+        // }
+        // console.log(contact)
+        contacts.simpanContact(argv.nama, argv.email, argv.noHP)
     }
 })
 

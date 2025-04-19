@@ -9,6 +9,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "chalk": "^4.1.0",
     "yargs": "^16.2.0"
   }
 }

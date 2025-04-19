@@ -1,12 +1,6 @@
-const readline = require('readline')
-const fs = require('fs')
-const { resolve } = require('path')
-const { rejects } = require('assert')
 
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-})
+const fs = require('fs')
+const chalk = require('chalk')
 
 //membuat folder data
 const dirPath = './data'
@@ -21,13 +15,7 @@ if(!fs.existsSync(dataPath)){
 }
 
 
-const tulisPertanyaan = (pertanyaan) => {
-    return new Promise((resolve, rejects) => {
-        rl.question( pertanyaan, (nama) => {
-            resolve(nama)
-        })
-    })
-}
+
 
 
 const simpanContact = (nama, email, noHP) => {
@@ -36,12 +24,19 @@ const simpanContact = (nama, email, noHP) => {
     const fileBuffer = fs.readFileSync('data/contacts.json', 'utf-8');
     const contacts = JSON.parse(fileBuffer);
 
+    //cek duplikaat
+    const duplikat = contacts.find((contact) => contact.nama === nama)
+    if(duplikat){
+        console.log(chalk.red.inverse.bold('kontak sudah terdaftar, gunakan nama lain'))
+        return false
+    }
+
     contacts.push(contact);
 
     fs.writeFileSync('data/contacts.json', JSON.stringify(contacts)); 
     console.log('Kontak berhasil disimpan.');
 
-    rl.close();
+    
 }
 
-module.exports = {tulisPertanyaan, simpanContact}
+module.exports = {simpanContact}

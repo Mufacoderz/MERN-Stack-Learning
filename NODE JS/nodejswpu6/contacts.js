@@ -38,12 +38,17 @@ const simpanContact = (nama, email, noHP) => {
             return false
         }
     }
+    //cek noHp
+    if(!validator.isMobilePhone(noHP, 'id-ID')){
+        console.log(chalk.red.inverse.bold('nomor hp tidak valid'))
+        return false
+    }
 
 
     contacts.push(contact);
 
     fs.writeFileSync('data/contacts.json', JSON.stringify(contacts)); 
-    console.log('Kontak berhasil disimpan.');
+    console.log(chalk.green.inverse.bold('Kontak berhasil disimpan.'));
 
     
 }

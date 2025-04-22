@@ -47,6 +47,15 @@ yargs.command({
 }).demandCommand()
 
 
+//menampilkan daftar semua nama dan nomor contact
+yargs.command({
+    command: 'list',
+    describe: 'menampilkan semua info contact',
+    handler(){
+        contacts.listContact()
+    }
+})
+
 yargs.parse()
 
 

@@ -44,7 +44,8 @@ yargs.command({
         // console.log(contact)
         contacts.simpanContact(argv.nama, argv.email, argv.noHP)
     }
-})
+}).demandCommand()
+
 
 yargs.parse()
 

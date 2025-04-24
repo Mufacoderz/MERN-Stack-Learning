@@ -66,4 +66,19 @@ const listContact = () => {
     })
 }
 
-module.exports = {simpanContact, listContact}
+const detailContact = (nama) => {
+    const contacts = loadContact()
+
+    const contact = contacts.find((contact)=> contact.nama.toLowerCase() === nama.toLowerCase())
+    if(!contact){
+        console.log(chalk.red.inverse.bold(`${nama} tidak ditemukan`))
+        return false
+    }
+    console.log(chalk.cyan.inverse.bold(contact.nama));
+    console.log(contact.noHP);
+    if(contact.email){
+        console.log(contact.email);
+    }
+}
+
+module.exports = {simpanContact, listContact, detailContact}

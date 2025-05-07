@@ -1,5 +1,6 @@
 const http = require('http')
 const port = 3000
+const fs = require('fs')
 
 http
 .createServer((req, res) => {
@@ -15,8 +16,16 @@ http
         res.write('<h1>Ini adalah page contact</h1>');
         res.end();
     } else{
-        res.write('hello wolrd');
-        res.end();
+        // res.write('hello wolrd');
+        fs.readFile('./index.html', (err, data) => {
+            if(err){
+                res.writeHead(404)
+                res.write('file not found')
+            } else{
+                res.write(data)
+            }
+            res.end()
+        })
     }
 
 })

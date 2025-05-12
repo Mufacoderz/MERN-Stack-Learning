@@ -24,6 +24,10 @@ app.get('/contact', (req, res) => {
   res.sendFile('./contact.html', {root: __dirname})
 })
 
+app.get('/product/:id/category/:idCat', (req, res)=>{
+  res.send(`Product ID :  ${req.params.id} <br> Category Id : ${req.params.idCat}`)
+})
+
 app.use('/', (req, res) => {
   res.status(404)
   res.send('<h1>404</h1>')

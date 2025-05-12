@@ -4,15 +4,24 @@ const app = express()
 const port = 3000
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  // res.send('Hello World!')
+  // res.json({
+  //   nama: 'fadil',
+  //   email: 'alamak@gmail.com',
+  //   noHp: '086757538'
+  // })
+  res.sendFile('./index.html', {root: __dirname})
 })
 
 app.get('/about', (req, res) => {
-  res.send('ini about')
+  // res.send('ini about')
+  res.sendFile('./about.html', {root: __dirname})
+
 })
 
 app.get('/contact', (req, res) => {
-  res.send('ini contact')
+  // res.send('ini contact')
+  res.sendFile('./contact.html', {root: __dirname})
 })
 
 app.use('/', (req, res) => {

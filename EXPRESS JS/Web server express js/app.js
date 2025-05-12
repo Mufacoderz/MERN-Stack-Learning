@@ -15,6 +15,11 @@ app.get('/contact', (req, res) => {
   res.send('ini contact')
 })
 
+app.use('/', (req, res) => {
+  res.status(404)
+  res.send('<h1>404</h1>')
+})
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })

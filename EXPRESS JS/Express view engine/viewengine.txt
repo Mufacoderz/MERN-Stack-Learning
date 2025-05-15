@@ -1,3 +1,7 @@
 view / template engine adalah sebuah cara yg memungkinkan kita membuat file template statis untyk aplikassi kita.
 engine tsb mengganti variable pada template kita dgn nilai sbnarnya, lalu menampilkan dlm bentuk html
 singkatnya ==>> mengirim data ke engine, lalu tampilkan dalm bntuk html ke browser
+
+ada banyak template engine exprs js
+
+contoh nya EJS (embedded js template) yg akan dipake di foilder belajar ini

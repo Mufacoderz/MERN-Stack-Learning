@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title> <%= title %> </title>
 </head>
 <body>
     <h1>hello yohoohooho</h1>
@@ -13,5 +13,21 @@
         <li><a href="/about">About</a></li>
         <li><a href="/contact">Contact</a></li>
     </ul>
+
+  
+    <h2>Halo <%= nama %></h2>
+
+    <h4>Daftar mahaiswa</h4>
+    
+        <% if (mahasiswa.length < 1) { %>
+         <p>data mahasiswa masih kosong</p>
+        <% } else { %>  <% mahasiswa.forEach(mhs => { %>
+        <ul>
+            <li>Nama : <%= mhs.nama %> </li>
+            <li>Email : <%= mhs.email %> </li>
+        </ul>
+        <% }) %>
+        <% } %>
+   
 </body>
 </html>

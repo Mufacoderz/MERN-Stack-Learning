@@ -7,7 +7,12 @@ const port = 3000
 app.set('view engine', 'ejs')
 
 app.get('/', (req, res) => {
-  res.render('index')  // ekstrensinya jadi ejs bukan html
+  const mahasiswa = []
+  res.render('index', {
+    nama: 'Fadil',
+    title: 'halaman home',
+    mahasiswa,
+   })  
 })
 
 app.get('/about', (req, res) => {

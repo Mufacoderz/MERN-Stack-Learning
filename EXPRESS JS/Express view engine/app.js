@@ -3,18 +3,19 @@ const express = require('express')
 const app = express()
 const port = 3000
 
+//gunakan ejs
+app.set('view engine', 'ejs')
+
 app.get('/', (req, res) => {
-  res.sendFile('./index.html', {root: __dirname})
+  res.render('index')  // ekstrensinya jadi ejs bukan html
 })
 
 app.get('/about', (req, res) => {
-
-  res.sendFile('./about.html', {root: __dirname})
-
+  res.render('about')
 })
 
 app.get('/contact', (req, res) => {
-  res.sendFile('./contact.html', {root: __dirname})
+  res.render('contact')
 })
 
 app.get('/product/:id/category/:idCat', (req, res)=>{

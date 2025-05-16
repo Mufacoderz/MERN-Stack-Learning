@@ -46,3 +46,5 @@ Semua sintaks control flow ditulis di dalam tag <% %>.
 Untuk mencetak output ke HTML, gunakan <%= %>.
 
 Jangan lupa menutup tag dengan benar untuk menghindari error saat rendering.
+
+penjelasan by: chat GPT

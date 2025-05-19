@@ -15,3 +15,25 @@ sebuah fungsi yg memiliki akses ke object request(req), object respon (res) dan 
 1. User-defined middleware -- middleware yg kita bikin sndiri
 2. Built-in middleware --  middleware yg sudah adaa di express
 3. Third-party middleware -- middleware yg sudah dibuatkan oleh orang lain dan bisa kita install / gunakan lewat npm
+
+===================================================================================================================================
+
+Express adalah kerangka kerja web routing dan middleware yang memiliki fungsionalitas minimal sendiri: Aplikasi Express pada dasarnya adalah serangkaian panggilan fungsi middleware.
+
+Fungsi middleware adalah fungsi yang memiliki akses ke objek permintaan (req), objek respons (res), dan fungsi middleware berikutnya dalam siklus permintaan-respons aplikasi. Fungsi middleware berikutnya biasanya dilambangkan dengan variabel bernama next.
+
+Fungsi middleware dapat melakukan tugas-tugas berikut:
+
+Mengeksekusi kode apa pun.
+
+Membuat perubahan pada objek permintaan dan respons.
+Mengakhiri siklus permintaan-respons.
+Memanggil fungsi middleware berikutnya dalam tumpukan.
+Jika fungsi middleware saat ini tidak mengakhiri siklus permintaan-respons, ia harus memanggil next() untuk meneruskan kontrol ke fungsi middleware berikutnya. Jika tidak, permintaan akan dibiarkan menggantung.
+
+Aplikasi Express dapat menggunakan jenis middleware berikut:
+-Application-level middleware
+-Router-level middleware
+-Error-handling middleware
+-Built-in middleware
+-Third-party middleware

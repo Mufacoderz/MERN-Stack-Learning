@@ -1,0 +1,17 @@
+Middleware = 
+- sebuah software yg menghubungkan sotware atau aplikasi lain
+- sebuah software yg berada diantara sistem operasi dan aplikasi
+
+middleware di web apliaction:
+request > app > response
+-user memberikan request seperti(melakukan sesuatu di url / mengambil data API, meginput data lewat form dll), lalu request kita akan di kelola oleh app, dan kemudian menghasilkan sebuah response.
+-kita bisa memberikaan middleware sebelum app / aplikasinya mengkelola request kita, contoh authentication, routing dll
+
+express middleware =
+Aplikasi express itu sebenarnya berisi serngkaian pemanggilan fungsi middleware
+
+fungsi middleware =
+sebuah fungsi yg memiliki akses ke object request(req), object respon (res) dan fungsi middleware berikutnya
+1. User-defined middleware -- middleware yg kita bikin sndiri
+2. Built-in middleware --  middleware yg sudah adaa di express
+3. Third-party middleware -- middleware yg sudah dibuatkan oleh orang lain dan bisa kita install / gunakan lewat npm

@@ -9,11 +9,15 @@ app.set('view engine', 'ejs')
 app.use(expresslayouts)
 app.set('layout', 'layouts/main-layout')
 
+//built-in level middleware
+app.use(express.static('public'))
+
 //application level middleware
 app.use((req, res, next)=>{
   console.log('Time: ', Date.now())
   next()
 })
+
 
 app.get('/', (req, res) => {
   const mahasiswa = [

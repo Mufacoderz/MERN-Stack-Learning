@@ -9,8 +9,25 @@ app.set('view engine', 'ejs')
 app.use(expresslayouts)
 app.set('layout', 'layouts/main-layout')
 
+//application level middleware
+app.use((req, res, next)=>{
+  console.log('Time: ', Date.now())
+  next()
+})
+
 app.get('/', (req, res) => {
-  const mahasiswa = []
+  const mahasiswa = [
+    {
+    nama: 'fadil',
+    email: 'mf9555759@gmail.com',
+    nohp: '081348726973',
+  },
+  {
+    nama: 'lelouch',
+    email: 'britannia@gmail.com',
+    nohp: '0813487297873',
+  },
+]
   res.render('index', {
     nama: 'Fadil',
     title: 'halaman home',

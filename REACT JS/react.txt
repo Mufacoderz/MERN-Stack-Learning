@@ -1,1 +1,2 @@
-folder react js
+- library js utk membuat antarmuka penggguna / UI yg interaktif
+- disebut library karena menyediakan fungsi-fugsi utk membangun ui , tapi terserah developer utk menggunakan fungsinya

@@ -15,7 +15,20 @@
 
       const container = document.getElementById('root');
       const root = ReactDOM.createRoot(container);
-      root.render(<h1>Belajar react js 🚀</h1>);
+
+      function Header(){
+        return(<h1>Belajar react js 🚀</h1>)
+      }
+
+      function HomePage(){
+        return(
+          <>
+            <Header/>
+          </>
+        )
+      }
+
+      root.render(<HomePage/>);
 
     </script>
 

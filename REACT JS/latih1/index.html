@@ -21,11 +21,16 @@
       }
 
       function HomePage(){
+        const kuronoKishidan = ['Zero', 'kallen', 'ohgi']
         return(
-          <>
-            <Header />
-            <Header author="Lelouch" />
-          </>
+          <div>
+            <Header/>
+            <ul>
+              {kuronoKishidan.map((kuroKishi) => (
+                <li key={kuroKishi}>{kuroKishi}</li>
+            ))}
+            </ul>  
+          </div>
         )
       }
 

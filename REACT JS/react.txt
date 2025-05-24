@@ -1,2 +1,70 @@
 - library js utk membuat antarmuka penggguna / UI yg interaktif
 - disebut library karena menyediakan fungsi-fugsi utk membangun ui , tapi terserah developer utk menggunakan fungsinya
+
+Component
+
+Component adalah blok bangunan utama dalam React. Component bisa dianggap sebagai fungsi atau class yang mengembalikan elemen JSX (HTML dalam JavaScript). Setiap bagian dari UI biasanya dibuat menjadi component, agar kode lebih terstruktur dan mudah dikelola.
+
+Contoh:
+
+function Greeting() {
+  return <h1>Hello, world!</h1>;
+}
+Props (Properties)
+
+Props adalah parameter yang dikirim ke component untuk memberikan nilai tertentu. Props membuat component menjadi dinamis dan dapat digunakan ulang.
+
+Contoh:
+
+function Greeting(props) {
+  return <h1>Hello, {props.name}!</h1>;
+}
+
+// Pemakaian:
+<Greeting name="Fadil" />
+Props Refactor
+
+Props refactor dilakukan untuk membuat kode lebih rapi dan mudah dibaca, terutama saat props yang digunakan cukup banyak. Bisa dilakukan dengan menggunakan destructuring.
+
+Sebelum refactor:
+
+function Profile(props) {
+  return <p>{props.name} - {props.age}</p>;
+}
+Sesudah refactor:
+
+function Profile({ name, age }) {
+  return <p>{name} - {age}</p>;
+}
+Unique Key
+
+Saat merender list/daftar item di React, setiap item harus memiliki key yang unik. Key digunakan oleh React untuk melacak dan mengoptimalkan proses render ulang (re-render) ketika data berubah.
+
+Contoh:
+
+const names = ['Ali', 'Budi', 'Cici'];
+
+const nameList = names.map((name, index) => (
+  <li key={index}>{name}</li>
+));
+Catatan: Hindari menggunakan index sebagai key jika memungkinkan, terutama jika data bisa berubah urutan.
+
+State
+
+State adalah data internal component yang dapat berubah seiring waktu. Saat state berubah, React akan secara otomatis merender ulang UI sesuai data terbaru.
+
+Contoh:
+
+import { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>Jumlah: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Tambah</button>
+    </div>
+  );
+}
+useState adalah hook yang digunakan untuk mengelola state dalam function component.

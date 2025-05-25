@@ -68,3 +68,30 @@ function Counter() {
   );
 }
 useState adalah hook yang digunakan untuk mengelola state dalam function component.
+
+
+=================================================================================================================================
+🔹 State (Keadaan)
+State adalah data lokal yang disimpan dalam sebuah komponen dan dapat berubah seiring waktu.
+
+Contoh: menyimpan nilai input, jumlah klik, dll.
+
+jsx
+Salin
+Edit
+const [count, setCount] = useState(0);
+count: nilai state saat ini
+
+setCount: fungsi untuk mengubah state
+
+useState(0): hook untuk membuat state dengan nilai awal 0
+
+🔹 Hooks
+Hooks adalah fungsi khusus di React yang memungkinkan kita menggunakan fitur seperti state dan lifecycle di function component (komponen berbasis fungsi).
+
+🧩 Beberapa Hook Umum:
+Hook	Fungsi
+useState()	Membuat dan mengelola state
+useEffect()	Menjalankan efek samping (misalnya fetch API, manipulasi DOM)
+useRef()	Menyimpan nilai yang tidak memicu render ulang
+useContext()	Mengakses data global dari Context API

@@ -21,15 +21,25 @@
       }
 
       function HomePage(){
+
         const kuronoKishidan = ['Zero', 'kallen', 'ohgi']
+        const [likes, setLikes] = React.useState(0)
+
+        function handleClick(){
+          setLikes(likes + 1)
+        }
+
         return(
           <div>
             <Header/>
+
             <ul>
               {kuronoKishidan.map((kuroKishi) => (
                 <li key={kuroKishi}>{kuroKishi}</li>
             ))}
-            </ul>  
+            </ul> 
+
+            <button onClick={handleClick}>Like {}{likes}</button>
           </div>
         )
       }

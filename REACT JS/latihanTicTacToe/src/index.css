@@ -6,3 +6,18 @@ body{
   margin: 20px;
   padding: 0;
 }
+.square{
+  width: 35px;
+  height: 35px;
+  border: 1px solid black;
+  background-color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+.board{
+  display: flex;
+  flex-wrap: wrap;
+  width: 105px;
+  height: 105px;
+}

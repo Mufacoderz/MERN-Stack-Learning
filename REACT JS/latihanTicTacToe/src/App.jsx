@@ -14,10 +14,18 @@ export default function Board() {
   
   const [squares, setSquares] = useState(Array(9).fill(null))
 
+  const [xIsNext, setXIsNext] = useState(true)
+
   function handleClick(i){
     const nextSquare = squares.slice()
-    nextSquare[i] = 'X'
+    if(xIsNext){
+      nextSquare[i] = 'X'
+    }
+    else{
+      nextSquare[i] = 'O'
+    }
     setSquares(nextSquare)
+    setXIsNext(!xIsNext)
   }
 
   return (

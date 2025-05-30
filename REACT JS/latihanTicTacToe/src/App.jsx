@@ -17,13 +17,14 @@ export default function Board() {
   const [xIsNext, setXIsNext] = useState(true)
 
   function handleClick(i){
+
+    if(squares[i]) {
+      return ;
+    }
+    
     const nextSquare = squares.slice()
-    if(xIsNext){
-      nextSquare[i] = 'X'
-    }
-    else{
-      nextSquare[i] = 'O'
-    }
+    
+    nextSquare[i] = (xIsNext) ? "X" : "O"
     setSquares(nextSquare)
     setXIsNext(!xIsNext)
   }

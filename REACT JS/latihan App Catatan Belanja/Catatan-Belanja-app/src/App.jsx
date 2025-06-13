@@ -1,35 +1,71 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './index.css'
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="app">
+      <h1>Catatan Belanjaku 📝</h1>
+
+      <form className="add-form">
+        <h3>Hari ini belanja apa kita?</h3>
+        <div>
+          <select>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+          <input type="text" placeholder="nama barang..." />
+        </div>
+        <button>Tambah</button>
+      </form>
+
+      <div className="list">
+        <ul>
+          <li>
+            {/* ✅ Perbaiki checked jadi boolean & tambahkan onChange */}
+            <input
+              type="checkbox"
+              checked={true}
+              onChange={() => {}}
+            />
+            {/* ✅ Ubah style string menjadi object */}
+            <span style={{ textDecoration: 'line-through' }}>1 Kopi</span>
+            <button>&times;</button>
+          </li>
+          <li>
+            <input
+              type="checkbox"
+              checked={false}
+              onChange={() => {}}
+            />
+            <span>5 Gula Pasir</span>
+            <button>&times;</button>
+          </li>
+          <li>
+            <input
+              type="checkbox"
+              checked={false}
+              onChange={() => {}}
+            />
+            <span>3 Air Mineral</span>
+            <button>&times;</button>
+          </li>
+        </ul>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+
+      <div className="actions">
+        <select>
+          <option value="input">Urutkan berdasarkan urutan input</option>
+          <option value="name">Urutkan berdasarkan nama barang</option>
+          <option value="checked">Urutkan berdasarkan ceklis</option>
+        </select>
+        <button>Bersihkan Daftar</button>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+
+      <footer className="stats">
+        Ada 10 barang di daftar belanjaan, 5 barang sudah dibeli (50%)
+      </footer>
+    </div>
   )
 }
-
-export default App

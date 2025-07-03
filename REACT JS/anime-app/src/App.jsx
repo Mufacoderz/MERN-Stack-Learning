@@ -41,10 +41,62 @@ const animesData = [
 ];
 
 export default function App() {
+  
+
+  return (
+    <>
+      <NavBar/>
+
+      <Main/>
+    </>
+  );
+}
+
+function NavBar(){
+
+  return(
+    <nav className="nav-bar">
+       <Logo/>
+        <Search/>
+      </nav>
+  )
+}
+
+
+function Logo(){
+  return(
+    <div className="logo">
+    <span role="img">🍥</span>
+    <h1>WeeBoo</h1>
+    <span role="img">🍥</span>
+  </div>
+  )
+}
+
+function Search(){
   const [query, setQuery] = useState('');
+
+  return(
+    <div className="search-container">
+          <input className="search" type="text" placeholder="Search anime..." value={query} onChange={(e) => setQuery(e.target.value)} />
+          <NumResult/>
+        </div>
+  )
+}
+
+function NumResult(){
+  return(
+    <p className="search-results">
+        Found <strong>4</strong> results
+    </p>
+  )
+}
+
+
+function Main(){
+  
   const [animes, setAnimes] = useState(animesData);
   const [selectedAnime, setSelectedAnime] = useState(animes[0]);
-  const [isOpen1, setIsOpen1] = useState(true);
   const [isOpen2, setIsOpen2] = useState(true);
 
   function handleSelectedAnime(id) {
@@ -52,43 +104,9 @@ export default function App() {
     setSelectedAnime(newAnime[0]);
   }
 
-  return (
-    <>
-      <nav className="nav-bar">
-        <div className="logo">
-          <span role="img">🍥</span>
-          <h1>WeeBoo</h1>
-          <span role="img">🍥</span>
-        </div>
-        <div className="search-container">
-          <input className="search" type="text" placeholder="Search anime..." value={query} onChange={(e) => setQuery(e.target.value)} />
-          <p className="search-results">
-            Found <strong>4</strong> results
-          </p>
-        </div>
-      </nav>
-
-      <main className="main">
-        <div className="box">
-          <button className="btn-toggle" onClick={() => setIsOpen1((open) => !open)}>
-            {isOpen1 ? '–' : '+'}
-          </button>
-          {isOpen1 && (
-            <ul className="list list-anime">
-              {animes?.map((anime) => (
-                <li key={anime.mal_id} onClick={() => handleSelectedAnime(anime.mal_id)}>
-                  <img src={anime.image} alt={`${anime.title} cover`} />
-                  <h3>{anime.title}</h3>
-                  <div>
-                    <p>
-                      <span>{anime.year}</span>
-                    </p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
+  return(
+    <main className="main">
+      <AnimeList animes={animes}onSelectedAnime={handleSelectedAnime}/>
         <div className="box">
           <button className="btn-toggle" onClick={() => setIsOpen2((open) => !open)}>
             {isOpen2 ? '–' : '+'}
@@ -113,6 +131,34 @@ export default function App() {
           )}
         </div>
       </main>
-    </>
-  );
+  )
+}
+
+function AnimeList({animes, onSelectedAnime}){
+
+  const [isOpen1, setIsOpen1] = useState(true);
+
+
+  return(
+    <div className="box">
+    <button className="btn-toggle" onClick={() => setIsOpen1((open) => !open)}>
+      {isOpen1 ? '–' : '+'}
+    </button>
+    {isOpen1 && (
+      <ul className="list list-anime">
+        {animes?.map((anime) => (
+          <li key={anime.mal_id} onClick={() => onSelectedAnime(anime.mal_id)}>
+            <img src={anime.image} alt={`${anime.title} cover`} />
+            <h3>{anime.title}</h3>
+            <div>
+              <p>
+                <span>{anime.year}</span>
+              </p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    )}
+  </div>
+  )
 }

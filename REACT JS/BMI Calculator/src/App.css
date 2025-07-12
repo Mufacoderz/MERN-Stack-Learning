@@ -1,0 +1,159 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #fdfbfb, #ebedee);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.bmi-container {
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  max-width: 400px;
+  width: 100%;
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.title {
+  text-align: center;
+  color: #333;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+}
+
+.bmi-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 0.4rem;
+  color: #555;
+  font-weight: 600;
+}
+
+input {
+  padding: 0.7rem;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+  background-color: #fff;
+  color: #333;
+  transition: border 0.3s ease;
+}
+
+input::placeholder {
+  color: #aaa; 
+}
+
+
+input:focus {
+  outline: none;
+  border-color: #84c5f4;
+  box-shadow: 0 0 0 3px rgba(132, 197, 244, 0.2);
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.btn {
+  padding: 0.7rem 1.4rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn.primary {
+  background-color: #84c5f4;
+  color: white;
+}
+
+.btn.primary:hover {
+  background-color: #65aee2;
+}
+
+.btn.secondary {
+  background-color: transparent;
+  border: 2px solid #84c5f4;
+  color: #84c5f4;
+}
+
+.btn.secondary:hover {
+  background-color: #f0faff;
+}
+
+.bmi-result {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1rem;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.bmi-result h2 {
+  margin-bottom: 0.5rem;
+}
+
+/* Colored status styles */
+.bmi-result.underweight {
+  background-color: #fff4e5;
+  color: #d48806;
+}
+
+.bmi-result.normal {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.bmi-result.overweight {
+  background-color: #fff3e0;
+  color: #ef6c00;
+}
+
+.bmi-result.obese {
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .bmi-container {
+    padding: 2rem 1.5rem;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}

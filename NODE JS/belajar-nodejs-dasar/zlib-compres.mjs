@@ -1,10 +1,12 @@
 import zlib from 'zlib'
 import fs from 'fs'
 
-const source = fs.readFileSync('zlib.mjs')
+const source = fs.readFileSync('zlib-compres.mjs')
 const result = zlib.gzipSync(source)
 
-fs.writeFileSync('zlib.mjs', result)
+// console.info(result)
+fs.writeFileSync('zlib-compres.mjs.txt', result)
+
 
 
 // Module 'zlib' adalah bawaan Node.js yang dipakai untuk kompresi (compress) dan dekompresi (decompress) data.

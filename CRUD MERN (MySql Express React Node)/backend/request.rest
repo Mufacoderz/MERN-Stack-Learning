@@ -3,3 +3,30 @@ GET http://localhost:500/users
 
 ###
 GET http://localhost:500/users/1
+
+
+
+###
+POST http://localhost:500/users
+Content-Type: application/json
+
+{
+    "name": "Muh fadil",
+    "email": "mggg@gmail.com",
+    "gender": "Male"
+}
+
+
+###
+PATCH http://localhost:500/users/1
+Content-Type: application/json
+
+{
+    "name": "Muh asep",
+    "email": "mffg@gmail.com",
+    "gender": "Male"
+}
+
+
+###
+DELETE  http://localhost:500/users/2

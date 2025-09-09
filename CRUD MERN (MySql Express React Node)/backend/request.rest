@@ -1,0 +1,5 @@
+GET http://localhost:500/users
+
+
+###
+GET http://localhost:500/users/1

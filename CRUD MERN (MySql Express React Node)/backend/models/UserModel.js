@@ -17,7 +17,6 @@ const User = db.define(
 
 export default User;
 
-
 (async () => {
   try {
     await db.sync();

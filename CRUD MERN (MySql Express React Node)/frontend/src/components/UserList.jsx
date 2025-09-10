@@ -1,6 +1,23 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 
 const UserList = () => {
+  const [user, setUser] = useState([])
+
+  useEffect(() => {
+    getUser()
+  }, [])
+
+  const getUser = async () => {
+    try {
+      const response = await axios.get('http://localhost:500/users')
+      setUser(response.data)
+       
+    } catch (error) {
+      console.error("Error fetching users:", error)
+    }
+  }
+
   return (
     <div className="columns mt-5 is-centered">
         <div className="column is-half ">
@@ -15,13 +32,16 @@ const UserList = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    {UserList.map((user, index)=> (
+                         <tr key={user.id}>
+                            <td>{index+1}</td>
+                            <td>{user.name}</td>
+                            <td>{user.email}</td>
+                            <td>{user.gender}</td>
+                            <td><button></button></td>
+                     </tr>
+                    ))}
+                   
                 </tbody>
             </table>
         </div>

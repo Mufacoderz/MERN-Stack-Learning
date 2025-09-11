@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
 const UserList = () => {
-  const [user, setUser] = useState([])
+  const [users, setUser] = useState([])
 
   useEffect(() => {
     getUser()
@@ -32,13 +32,16 @@ const UserList = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {UserList.map((user, index)=> (
+                    {users.map((user, index)=> (
                          <tr key={user.id}>
                             <td>{index+1}</td>
                             <td>{user.name}</td>
                             <td>{user.email}</td>
                             <td>{user.gender}</td>
-                            <td><button></button></td>
+                            <td>
+                                <button className='button is-small is-info'>Edit</button>
+                                <button className='button is-small is-danger'>Delete</button>
+                            </td>
                      </tr>
                     ))}
                    

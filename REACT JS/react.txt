@@ -74,11 +74,8 @@ useState adalah hook yang digunakan untuk mengelola state dalam function compone
 🔹 State (Keadaan)
 State adalah data lokal yang disimpan dalam sebuah komponen dan dapat berubah seiring waktu.
 
-Contoh: menyimpan nilai input, jumlah klik, dll.
+Contoh: menyimpan nilai input, jumlah klik, dll
 
-jsx
-Salin
-Edit
 const [count, setCount] = useState(0);
 count: nilai state saat ini
 

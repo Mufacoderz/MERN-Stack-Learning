@@ -1,6 +1,9 @@
 import express from 'express'
+import dotenv from 'dotenv'
 import db from './config/database.js'
 import router from './routes/routes.js'
+
+dotenv.config()
 const app = express()
 
 try {

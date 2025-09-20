@@ -4,7 +4,9 @@ import jwt from 'jsonwebtoken'
 
 export const getUsers = async(req, res)=>{
     try {
-        const users = await Users.findAll()
+        const users = await Users.findAll({
+            attributes: ['id', 'name', 'email']
+        })
         res.json(users)
     } catch (error) {
         console.log(error)
@@ -28,35 +30,52 @@ export const Register = async(req, res)=>{
     }
 }
 
-export const Login = async(res,req)=>{
+export const Login = async (req, res) => {
     try {
-        const user = await Users.findAll({
-            where:{
+        const user = await Users.findOne({
+            where: {
                 email: req.body.email
             }
         })
-        const match = await bcrypt.compare(req.body.password, user[0].password)
-        if(!match) return res.status(404).json({msg:'pw salah'})
-            const userId = user[0].id
-            const name = user[0].name
-            const email = user[0].email
-            const accessToken = jwt.sign({userId, name, email}, process.env.ACCESS_TOKEN_SECRET, {
-                expiresIn: '20s'
-            })
-            const refreshToken = jwt.sign({userId, name, email}, process.env.REFRESH_TOKEN_SECRET, {
-                expiresIn: '1d'
-            })
-            await Users.update({refresh_token: refreshToken},{
-                where:{
-                    id:userId
-                }
-            })
-            res.cookie('refreshToken', refreshToken,{
-                httpOnly: true,
-                maxAge: 24 * 60 * 60 * 1000,
-            })
-            res.json({accessToken})
+
+        if (!user) {
+            return res.status(404).json({ msg: 'Email tidak ditemukan' })
+        }
+
+        const match = await bcrypt.compare(req.body.password, user.password)
+        if (!match) {
+            return res.status(400).json({ msg: 'Password salah' })
+        }
+
+        const userId = user.id
+        const name = user.name
+        const email = user.email
+
+        const accessToken = jwt.sign(
+            { userId, name, email },
+            process.env.ACCESS_TOKEN_SECRET,
+            { expiresIn: '20s' }
+        )
+
+        const refreshToken = jwt.sign(
+            { userId, name, email },
+            process.env.REFRESH_TOKEN_SECRET,
+            { expiresIn: '1d' }
+        )
+
+        await Users.update(
+            { refresh_token: refreshToken },
+            { where: { id: userId } }
+        )
+
+        res.cookie('refreshToken', refreshToken, {
+            httpOnly: true,
+            maxAge: 24 * 60 * 60 * 1000
+        })
+
+        return res.json({ accessToken })
     } catch (error) {
-        res.status(404).json({msg:'email tak ditemukan'})
+        console.log(error)
+        return res.status(500).json({ msg: 'Server error' })
     }
 }

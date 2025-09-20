@@ -1,5 +1,5 @@
 GET http://localhost:5000/users
-
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJNIEZhZGlsIiwiZW1haWwiOiJtZjk1NTU3NThAZ21haWwuY29tIiwiaWF0IjoxNzU4MzcwNjkyLCJleHAiOjE3NTgzNzA3MTJ9.rwyglOKDC5SYhB9S1lkSVlC7NH8-MHF1Fw4uXF_vBrE
 
 ###
 POST http://localhost:5000/users
@@ -10,4 +10,14 @@ Content-Type: application/json
     "email":"mf9555758@gmail.com",
     "password":"123456",
     "confPassword":"123456"
+}
+
+
+###
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "email":"mf9555758@gmail.com",
+    "password":"123456"
 }

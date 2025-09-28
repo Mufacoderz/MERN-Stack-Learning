@@ -23,5 +23,3 @@ app.use(router)
 
 app.listen(5000, ()=> console.log('server runnign at port 5000'))
 
-
-// login>copy accToken > get user > tunggu exp > get token > get user

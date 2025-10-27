@@ -1,0 +1,44 @@
+### Get all books (public route)
+GET http://localhost:3000/books
+Accept: application/json
+
+###
+
+### Get book by ID (public route)
+GET http://localhost:3000/books/1
+Accept: application/json
+
+###
+
+### Add new book (protected route, valid token)
+POST http://localhost:3000/books
+Content-Type: application/json
+token: 123
+
+{
+    "title": "The Pragmatic Programmer",
+    "author": "Andrew Hunt"
+}
+
+###
+
+### Add new book (protected route, invalid token)
+POST http://localhost:3000/books
+Content-Type: application/json
+token: wrongtoken
+
+{
+    "title": "Eloquent JavaScript",
+    "author": "Marijn Haverbeke"
+}
+
+###
+
+### Add new book (protected route, no token)
+POST http://localhost:3000/books
+Content-Type: application/json
+
+{
+    "title": "JavaScript: The Good Parts",
+    "author": "Douglas Crockford"
+}

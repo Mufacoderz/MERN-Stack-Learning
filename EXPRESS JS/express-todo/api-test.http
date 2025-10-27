@@ -1,0 +1,10 @@
+### Get semua todos
+GET http://localhost:3000/todos
+
+### Tambah todo baru
+POST http://localhost:3000/todos
+Content-Type: application/json
+
+{
+    "task": "Belajar tidur"
+}

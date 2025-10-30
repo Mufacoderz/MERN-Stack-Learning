@@ -1,0 +1,33 @@
+
+GET http://localhost:3000/notes
+Content-Type: application/json
+
+###
+
+
+GET http://localhost:3000/notes/1
+Content-Type: application/json
+
+###
+
+POST http://localhost:3000/notes
+Content-Type: application/json
+
+{
+    "text": "Belajar REST API pakai Express yahaha 4"
+}
+
+###
+
+PUT http://localhost:3000/notes/3
+Content-Type: application/json
+
+{
+    "text": "Belajar CRUD pakai Express.js (Update)"
+}
+
+###
+
+
+DELETE http://localhost:3000/notes/1761829470089
+Content-Type: application/json

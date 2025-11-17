@@ -1,0 +1,35 @@
+### GET Home
+GET http://localhost:3000
+
+
+### POST Register
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+  "username": "fadil",
+  "password": "123456"
+}
+
+
+### PUT Update User (replace all data)
+PUT http://localhost:3000/user/fadil
+Content-Type: application/json
+
+{
+  "name": "Muhammad Fadil",
+  "age": 20
+}
+
+
+### PATCH Update User (partial update)
+PATCH http://localhost:3000/user/fadil
+Content-Type: application/json
+
+{
+  "age": 21
+}
+
+
+### DELETE User
+DELETE http://localhost:3000/user/fadil
